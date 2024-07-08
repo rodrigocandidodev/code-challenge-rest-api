@@ -2,6 +2,8 @@ package dio.springboot.code_challenge_rest_api.domain.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity(name = "tb_enrollment")
 public class Enrollment {
 
@@ -10,13 +12,12 @@ public class Enrollment {
     private Long id;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Student student;
+    private List<Student> student;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private SchoolClass schoolClass;
+    private List<SchoolClass> schoolClass;
 
     private String enrollmentStatus;
-
 
     public Long getId() {
         return id;
@@ -26,19 +27,19 @@ public class Enrollment {
         this.id = id;
     }
 
-    public Student getStudent() {
+    public List<Student> getStudent() {
         return student;
     }
 
-    public void setStudent(Student student) {
+    public void setStudent(List<Student> student) {
         this.student = student;
     }
 
-    public SchoolClass getSchoolClass() {
+    public List<SchoolClass> getSchoolClass() {
         return schoolClass;
     }
 
-    public void setSchoolClass(SchoolClass schoolClass) {
+    public void setSchoolClass(List<SchoolClass> schoolClass) {
         this.schoolClass = schoolClass;
     }
 
